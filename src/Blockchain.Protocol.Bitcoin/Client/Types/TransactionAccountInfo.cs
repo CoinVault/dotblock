@@ -1,13 +1,11 @@
-﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="TransactionAccountInfo.cs" company="Dark Caesium">
-//   Copyright (c) Dark Caesium.  All rights reserved.
-//   THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+﻿// <copyright file="TransactionAccountInfo.cs" company="SoftChains">
+//  Copyright 2016 Dan Gershony
+//  Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// 
+//  THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, 
+//  EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES 
+//  OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
 // </copyright>
-// <summary>
-//   The list transactions info.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
 namespace Blockchain.Protocol.Bitcoin.Client.Types
 {
     #region Using Directives
