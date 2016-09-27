@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90D3E431-02DF-432F-9F09-ED6E934BACD2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Blockchain.Protocol.Bitcoin</RootNamespace>
+    <AssemblyName>Blockchain.Protocol.Bitcoin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>..\Common\Custom.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Blockchain.Protocol.Bitcoin.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>..\Common\Custom.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DocumentationFile>bin\Release\Blockchain.Protocol.Bitcoin.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.Crypto.dll.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address\Address.cs" />
+    <Compile Include="Address\ExtendedKeyDerivation.cs" />
+    <Compile Include="Common\ArrayHelpers.cs" />
+    <Compile Include="Address\BitcoinPublicKey.cs" />
+    <Compile Include="Address\BitcoinPrivateKey.cs" />
+    <Compile Include="Address\AddressException.cs" />
+    <Compile Include="Common\Base58Encoding.cs" />
+    <Compile Include="Common\BitHelper.cs" />
+    <Compile Include="Address\ExtendedKey.cs">
+      <SubType>Code</SubType>
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Address\ExtendedKeyPathBip44.cs" />
+    <Compile Include="Address\ExtendedKeyPath.cs" />
+    <Compile Include="Common\CoinParameters.cs" />
+    <Compile Include="Address\KeyInfo.cs" />
+    <Compile Include="Common\AddressUtil.cs" />
+    <Compile Include="Client\BitcoinClient.cs" />
+    <Compile Include="Client\BitcoinClientException.cs" />
+    <Compile Include="Client\BitcoinCommunicationException.cs" />
+    <Compile Include="Client\BitcoinErrorCodes.cs" />
+    <Compile Include="Client\CertificateHandler.cs" />
+    <Compile Include="Address\EcKey.cs" />
+    <Compile Include="Address\BitcoinKey.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Extension\EnumerableExtensions.cs" />
+    <Compile Include="Extension\ExceptionExtensions.cs" />
+    <Compile Include="Extension\Extensions.cs" />
+    <Compile Include="Extension\GenericExtensions.cs" />
+    <Compile Include="Extension\Guard.cs" />
+    <Compile Include="Extension\Range.cs" />
+    <Compile Include="Extension\Thrower.cs" />
+    <Compile Include="Extension\UnixUtils.cs" />
+    <Compile Include="Mnemonic\MnemonicException.cs" />
+    <Compile Include="Mnemonic\Bip39.cs" />
+    <Compile Include="Mnemonic\Wordlists\ChineseSimplified.cs" />
+    <Compile Include="Mnemonic\Wordlists\ChineseTraditional.cs" />
+    <Compile Include="Mnemonic\Wordlists\English.cs" />
+    <Compile Include="Mnemonic\Wordlists\French.cs" />
+    <Compile Include="Mnemonic\Wordlists\Japanese.cs" />
+    <Compile Include="Mnemonic\Bip39Kdf.cs" />
+    <Compile Include="Mnemonic\Wordlists\Spanish.cs" />
+    <Compile Include="Mnemonic\Wordlists\Wordlist.cs" />
+    <Compile Include="Security\CertUtil.cs" />
+    <Compile Include="Security\Cryptography\AesEncryption.cs" />
+    <Compile Include="Security\Cryptography\CertificateEncryption.cs" />
+    <Compile Include="Security\Cryptography\CryptoUtil.cs" />
+    <Compile Include="Security\SecureStringExtensions.cs" />
+    <Compile Include="Transaction\Types\FailedReason.cs" />
+    <Compile Include="Transaction\Script\Script.cs" />
+    <Compile Include="Transaction\Script\ScriptBuilder.cs" />
+    <Compile Include="Transaction\Script\ScriptChunk.cs" />
+    <Compile Include="Transaction\Script\ScriptOpCodes.cs" />
+    <Compile Include="Transaction\Script\ScriptException.cs" />
+    <Compile Include="Transaction\Types\Transaction.cs" />
+    <Compile Include="Transaction\TransactionBuilderClient.cs" />
+    <Compile Include="Transaction\TransactionBuilder.cs" />
+    <Compile Include="Transaction\TransactionException.cs" />
+    <Compile Include="Transaction\Types\TransactionInfo.cs" />
+    <Compile Include="Transaction\Types\ReceiveInfo.cs" />
+    <Compile Include="Transaction\Types\SendInfo.cs" />
+    <Compile Include="Transaction\Types\ReceiveInfoTransaction.cs" />
+    <Compile Include="Transaction\Types\TransactionOutPoint.cs" />
+    <Compile Include="Transaction\Types\TransactionOutput.cs" />
+    <Compile Include="Transaction\Types\TransactionInput.cs" />
+    <Compile Include="Transaction\Types\TransactionContext.cs" />
+    <Compile Include="Transaction\Serializers\TransactionSerializerGridcoin.cs" />
+    <Compile Include="Transaction\Serializers\TransactionSerializerTimeStamped.cs" />
+    <Compile Include="Transaction\Serializers\TransactionSerializerReddcoin.cs" />
+    <Compile Include="Transaction\Serializers\TransactionSerializer.cs" />
+    <Compile Include="Transaction\TransactionSigner.cs" />
+    <Compile Include="Transaction\TransactionSignature.cs" />
+    <Compile Include="Client\BitcoinClientFactory.cs" />
+    <Compile Include="Client\JsonUnixTimeConverter.cs" />
+    <Compile Include="Transaction\TransactionManager.cs" />
+    <Compile Include="Client\IBitcoinClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Client\Types\PeerInfo.cs" />
+    <Compile Include="Client\Types\TransactionOutputInfo.cs" />
+    <Compile Include="Client\Types\WorkInfo.cs" />
+    <Compile Include="Client\Types\BlockInfo.cs" />
+    <Compile Include="Client\Types\CreateRawTransactionOutput.cs" />
+    <Compile Include="Client\Types\CreateRawTransactionInput.cs" />
+    <Compile Include="Client\Types\CreateRawTransaction.cs" />
+    <Compile Include="Client\Types\DecodedRawTransaction.cs" />
+    <Compile Include="Client\Types\JsonRpcError.cs" />
+    <Compile Include="Client\Types\JsonRpcRequest.cs" />
+    <Compile Include="Client\Types\JsonRpcResponse.cs" />
+    <Compile Include="Client\Types\ScriptPubKey.cs" />
+    <Compile Include="Client\Types\ScriptSig.cs" />
+    <Compile Include="Client\Types\SignedRawTransaction.cs" />
+    <Compile Include="Client\Types\SignRawTransaction.cs" />
+    <Compile Include="Client\Types\SignRawTransactionInput.cs" />
+    <Compile Include="Client\Types\ClientInfo.cs" />
+    <Compile Include="Client\Types\TransactionUnspentInfo.cs" />
+    <Compile Include="Client\Types\TransactionInfoDetails.cs" />
+    <Compile Include="Client\Types\TransactionInfo.cs" />
+    <Compile Include="Client\Types\TransactionAccountInfo.cs" />
+    <Compile Include="Client\Types\ValidateAddressResult.cs" />
+    <Compile Include="Client\Types\Vin.cs" />
+    <Compile Include="Client\Types\Vout.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\Common\CustomDictionary.xml">
+      <Link>Properties\CustomDictionary.xml</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,105 @@
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="CertificateHandler.cs" company="Dark Caesium">
+//   Copyright (c) Dark Caesium.  All rights reserved.
+//   THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+// </copyright>
+// <summary>
+//   The certificate handler.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Blockchain.Protocol.Bitcoin.Client
+{
+    #region Using Directives
+
+    using System.Linq;
+    using System.Net;
+    using System.Net.Security;
+    using System.Security.Cryptography.X509Certificates;
+
+    using Blockchain.Protocol.Bitcoin.Security;
+
+    #endregion
+
+    /// <summary>
+    /// The certificate handler.
+    /// </summary>
+    public class CertificateHandler
+    {
+        #region Public Methods and Operators
+
+        /// <summary>
+        /// Validate a certificate is in store.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender argument.
+        /// </param>
+        /// <param name="certificate">
+        /// The certificate to check.
+        /// </param>
+        /// <param name="chain">
+        /// The chain associated with the certificate.
+        /// </param>
+        /// <param name="sslPolicyErrors">
+        /// The ssl Policy Errors.
+        /// </param>
+        /// <returns>
+        /// Returns True is this certificate exists in store.
+        /// </returns>
+        public static bool ValidateCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            return IsValidCryptoRequest(sender) ? IsValidCryptoCertificate(certificate) : sslPolicyErrors == SslPolicyErrors.None;
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The is valid crypto request.
+        /// </summary>
+        /// <param name="certificate">
+        /// The certificate.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
+        private static bool IsValidCryptoCertificate(X509Certificate certificate)
+        {
+            var certin = certificate as X509Certificate2;
+            if (certin != null)
+            {
+                X509Certificate2 certOut = null;
+                if (CertUtil.TryResolveCertificate(StoreName.CertificateAuthority, StoreLocation.LocalMachine, X509FindType.FindByThumbprint, certin.Thumbprint, out certOut))
+                {
+                    return true;
+                }
+
+                // azure website only supports the current user store.
+                if (CertUtil.TryResolveCertificate(StoreName.My, StoreLocation.CurrentUser, X509FindType.FindByThumbprint, certin.Thumbprint, out certOut))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// The is valid crypto request.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
+        private static bool IsValidCryptoRequest(object sender)
+        {
+            var req = sender as HttpWebRequest;
+            return req != null && req.Headers.AllKeys.Any(key => key == "x-crypto");
+        }
+
+        #endregion
+    }
+}

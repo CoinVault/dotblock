@@ -1,0 +1,34 @@
+﻿// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Vout.cs" company="Dark Caesium">
+//   Copyright (c) Dark Caesium.  All rights reserved.
+//   THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.
+// </copyright>
+// --------------------------------------------------------------------------------------------------------------------
+
+namespace Blockchain.Protocol.Bitcoin.Client.Types
+{
+    /// <summary>
+    /// The out.
+    /// </summary>
+    public class Vout
+    {
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets the n.
+        /// </summary>
+        public int N { get; set; }
+
+        /// <summary>
+        /// Gets or sets the script pub key.
+        /// </summary>
+        public ScriptPubKey ScriptPubKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value.
+        /// </summary>
+        public decimal Value { get; set; }
+
+        #endregion
+    }
+}
