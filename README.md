@@ -16,4 +16,4 @@ dotblock is used by CoinVault and supports Bitcoin and Altcoin blockchains which
 + SPV wallets
 + Supporting Ethereum
 
-####Anyone can contribute.
+####Contributors are most welcome.
