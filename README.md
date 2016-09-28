@@ -8,7 +8,7 @@ dotblock is used by CoinVault and supports Bitcoin and Altcoin blockchains which
 + Signing transactions (with support for altcoins)
 + Creating Bitcoin addresses
 + Mnemonic sentances
-+ Generating HD keys (BIP32) and deriving addresses (with support for BIP44 coin types)
++ Generating HD keys (BIP32) and coin types (BIP44 accounts)
 + RPC client implementation 
 
 ####Future work:
