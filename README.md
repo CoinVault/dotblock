@@ -12,7 +12,7 @@ dotblock is used by CoinVault and supports Bitcoin and Altcoin blockchains which
 + RPC client implementation 
 
 ####Future work:
-+ Multi sig transactions
++ Multi sig transactions (and SegWit)
 + SPV wallets
 + Supporting Ethereum
 
