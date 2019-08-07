@@ -1,6 +1,11 @@
+
+# This repo is obsolete for blockchain C# libraries protocol use:
+https://github.com/MetacoSA/NBitcoin  
+https://github.com/stratisproject/StratisBitcoinFullNode  
+
 # dotblock
 
-###A C# implementaiton composing libraries to work with the Bitcoin protocol.
+### A C# implementaiton composing libraries to work with the Bitcoin protocol.
 
 dotblock is used by CoinVault and supports Bitcoin and Altcoin blockchains which are forkes of the Bitcoin protocol
 
